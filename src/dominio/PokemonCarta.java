@@ -27,6 +27,13 @@ public class PokemonCarta extends Carta {
 	public double accept(CartaVisitor visitor) {
 		return visitor.visit(this);
 	}
+
+
+	@Override
+	public String FormatoString() {
+		
+		return nombre + ";" + rareza+";Pokemon;"+ danio +";" + energias;
+	}
 	
 	
 

@@ -17,6 +17,12 @@ public class SuportCarta extends Carta {
 	public double accept(CartaVisitor visitor) {
 		return visitor.visit(this);
 	}
+
+	@Override
+	public String FormatoString() {
+		
+		return nombre + ";" + rareza + ";Supporter;" + efectos;
+	}
 	
 	
 	

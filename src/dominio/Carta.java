@@ -21,6 +21,8 @@ public abstract class Carta {
 	}
 
 	public abstract double accept(CartaVisitor visitor);
+
+	public abstract String FormatoString();
 	
 	
 }
