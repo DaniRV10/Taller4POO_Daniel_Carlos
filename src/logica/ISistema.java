@@ -2,8 +2,10 @@ package logica;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 import dominio.Carta;
+import strategy.Ordenamiento;
 
 public interface ISistema {
 	
@@ -12,6 +14,9 @@ public interface ISistema {
 	void agregarCarta(Carta nuevaC);
 	boolean eliminarCarta(int indice);
 	boolean modificarCarta(int indice, String[] nuevosAtributos);
+	
+	void ordenarColeccion(Ordenamiento estrategia);
+	List<Carta> getColeccion();
 	
 
 }

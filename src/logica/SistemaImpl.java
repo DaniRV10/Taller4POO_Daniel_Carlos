@@ -115,4 +115,18 @@ public class SistemaImpl implements ISistema{
 	// ==========================================
     // PESTAÑA 2
     // ==========================================
+	
+	
+	
+	@Override
+    public void ordenarColeccion(Ordenamiento estrategia) {
+        // Delega el ordenamiento dinámico al patrón Strategy escogido
+        estrategia.ordenar(this.coleccion);
+    }
+
+    @Override
+    public List<Carta> getColeccion() {
+        // Retorna una copia de la lista para proteger el encapsulamiento
+        return new ArrayList<>(this.coleccion);
+    }
 }
