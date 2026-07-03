@@ -4,6 +4,7 @@ package logica;
 //Daniel Alexanders Robles Valdenegro 20738244-2 ICCI
 
 public class App {
+	
 
 	public static void main(String[] args) {
 		
