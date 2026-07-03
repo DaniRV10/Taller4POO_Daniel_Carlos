@@ -48,8 +48,8 @@ public class SistemaImpl implements ISistema{
 	}
 
 	@Override
-	public void guardarCartas() throws IOException {
-		
+	public void guardarCartas(){
+		try {
 		FileWriter fw = new FileWriter("txt/Sobres.txt");
         BufferedWriter bw = new BufferedWriter(fw);
         for(Carta carta: this.coleccion) {
@@ -58,7 +58,61 @@ public class SistemaImpl implements ISistema{
         }
         bw.close();
         fw.close();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
-
+	
+	// ==========================================
+    // PESTAÑA 1
+    // ==========================================
+	
+	@Override
+	public void agregarCarta(Carta nuevaCarta) {
+        this.coleccion.add(nuevaCarta);
+        guardarCartas(); 
+    }
+	
+	@Override
+	public boolean eliminarCarta(int indice) {
+	    // Validación de entrada obligatoria por pauta para evitar caídas (try-catch o rango)
+	    if (indice >= 0 && indice < this.coleccion.size()) {
+	        
+	        // Se elimina el objeto de la lista en memoria (no la imagen del disco)
+	        this.coleccion.remove(indice); 
+	        
+	        // Actualización automática para que los cambios persistan al cerrar la app
+	        this.guardarCartas(); 
+	        return true;
+	    }
+	    return false; // Índice fuera de rango
+	}
+	
+	@Override
+	public boolean modificarCarta(int indice, String[] nuevosAtributos) {
+	    // Validación de rango para asegurar la estabilidad del programa
+	    if (indice >= 0 && indice < this.coleccion.size()) {
+	        try {
+	            // Obtenemos la carta exacta (soluciona el problema de las repetidas)
+	            Carta carta = this.coleccion.get(indice);
+	            
+	            //Se delega la actualizacion a las subclases
+	            carta.actualizarAtributos(nuevosAtributos);
+	            
+	            // Sobrescribimos el archivo manteniendo estrictamente el formato original
+	            this.guardarCartas(); 
+	            return true;
+	            
+	        } catch (Exception e) {
+	            System.err.println("Error de validación en los datos de modificación: " + e.getMessage());
+	            return false;
+	        }
+	    }
+	    return false; // Índice fuera de rango
+	}
+	
+	// ==========================================
+    // PESTAÑA 2
+    // ==========================================
 }

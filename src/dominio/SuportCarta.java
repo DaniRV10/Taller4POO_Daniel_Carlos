@@ -23,6 +23,12 @@ public class SuportCarta extends Carta {
 		
 		return nombre + ";" + rareza + ";Supporter;" + efectos;
 	}
+
+	@Override
+	public void actualizarAtributos(String[] nuevosAtributos) {
+		this.efectos = Integer.parseInt(nuevosAtributos[0]);
+		
+	}
 	
 	
 	

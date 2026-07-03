@@ -34,6 +34,14 @@ public class PokemonCarta extends Carta {
 		
 		return nombre + ";" + rareza+";Pokemon;"+ danio +";" + energias;
 	}
+
+
+	@Override
+	public void actualizarAtributos(String[] nuevosAtributos) {
+		this.danio = Integer.parseInt(nuevosAtributos[0]);
+	    this.energias = Integer.parseInt(nuevosAtributos[1]);
+		
+	}
 	
 	
 

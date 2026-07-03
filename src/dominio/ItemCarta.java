@@ -23,6 +23,12 @@ public class ItemCarta extends Carta {
 		
 		return nombre + ";" + rareza+";Item;"+bonif;
 	}
+
+	@Override
+	public void actualizarAtributos(String[] nuevosAtributos) {
+		this.bonif = Integer.parseInt(nuevosAtributos[0]);
+		
+	}
 	
 	
 }

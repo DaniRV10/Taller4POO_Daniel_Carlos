@@ -23,6 +23,11 @@ public class EnergiaCarta extends Carta {
 		
 		return nombre + ";" + rareza + ";Energy;" + elemento;
 	}
+
+	@Override
+	public void actualizarAtributos(String[] nuevosAtributos) {
+		this.elemento = nuevosAtributos[0];
+	}
 	
 
 }
