@@ -25,6 +25,11 @@ public abstract class Carta {
 	public abstract String FormatoString();
 
 	public abstract void actualizarAtributos(String[] nuevosAtributos);
+
+	@Override
+	public String toString() {
+		return nombre + ", rareza= " + rareza;
+	}
 	
 	
 }
