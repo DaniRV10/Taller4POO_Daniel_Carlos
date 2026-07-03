@@ -12,6 +12,14 @@ public abstract class Carta {
 		this.rareza = rareza;
 	}
 	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public int getRareza() {
+		return rareza;
+	}
+
 	public abstract double accept(CartaVisitor visitor);
 	
 	
